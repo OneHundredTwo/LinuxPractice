@@ -1,0 +1,2 @@
+# HI THIS IS LINUX PRACTICE PROJECT
+* bash pratice
