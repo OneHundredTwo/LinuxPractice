@@ -5,3 +5,4 @@
 # 쉘스크립트에서 샵은 주석기호지만, 첫 라인의 샵,느낌표는 주석기호가 아닙니다. 
 echo "bash script test"
 echo $0
+echo $1
