@@ -16,4 +16,6 @@ do
         let "count++"
 done
 
-echo ${result[@]}
+VARIABLE="${result[@]}"
+echo ${VARIABLE} > ~/bin/multi_result
+multi_result
