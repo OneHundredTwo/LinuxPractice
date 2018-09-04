@@ -1,0 +1,29 @@
+#!/bin/bash
+
+IN=$1
+USER=$2
+OPER=$3
+#bash에서 string split하는 방법
+# https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash
+# 1안과 2안 모두 원리는 매개변수에서 구분자를 찾아서 공백문자로 치환한 다음에 괄호로 감싸서(배열로 변환) 저장한다는 것
+TO=($(echo ${IN} | tr ":" " ")) 
+#TO=(${IN//:/ })
+PIPE="|&"
+count=1
+result=()
+for num in ${TO[@]}
+do
+	if [ ${count} == ${#TO[@]} ]
+	then
+		PIPE=" " 
+	fi		
+	result=(${result[@]} "sshpass -p1111 ssh ${USER}@kserver0${num} \"${OPER}\" ${PIPE}")
+
+	let "count++"
+done
+
+VARIABLE="${result[@]}"
+echo ${VARIABLE} > ~/bin/multi_result
+multi_result
+
+

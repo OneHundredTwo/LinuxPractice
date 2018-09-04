@@ -1,0 +1,7 @@
+#!/bin/bash
+array=$*
+count=0
+for string in $*
+do
+	echo ${string}
+done

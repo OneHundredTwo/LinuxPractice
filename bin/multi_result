@@ -1,0 +1,1 @@
+sshpass -p1111 ssh bigdata@kserver01 "echo hi" |& sshpass -p1111 ssh bigdata@kserver02 "echo hi"

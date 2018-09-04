@@ -1,0 +1,19 @@
+#!/bin/bash
+OPER=$2
+USER=$1
+SERVERS=(1 2 3 4)
+result=()
+PIPE="|"
+count=1
+for num in ${SERVERS[@]}
+do
+        if [ ${count} == ${#SERVERS[@]} ]
+        then
+                PIPE=" "
+        fi
+        result=(${result[@]} "sshpass -p1111 ssh ${USER}@kserver0${num} \"${OPER}\" ${PIPE}")
+        let "count++"
+done
+
+echo ${result[@]}
+

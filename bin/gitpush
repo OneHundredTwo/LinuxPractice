@@ -1,0 +1,6 @@
+prevpwd=$PWD
+cd ~/linux_practice_project
+git add *
+git commit -m "linux practice project auto commit"
+git push origin master
+cd $prevpwd

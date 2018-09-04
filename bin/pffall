@@ -1,0 +1,1 @@
+sshpass -p1111 ssh root@kserver04 "poweroff" | sshpass -p1111 ssh root@kserver03 "poweroff" | sshpass -p1111 ssh root@kserver02 "poweroff" | sshpass -p1111 ssh root@kserver01 "poweroff"

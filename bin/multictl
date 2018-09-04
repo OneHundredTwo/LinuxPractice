@@ -1,0 +1,46 @@
+#!/bin/bash
+# 여러 서버 동시에 조작하기
+export ALL=("kserver01" "kserver02" "kserver03" "kserver04")
+export USER=root
+export TO=${ALL[@]}
+export PASSWD=1111
+operation=multssh
+count=0
+for var in $*
+do
+	case ${var} in
+		#root	
+		-r)
+			USER=root
+			let "count++"
+			;;
+		#user
+		-u*)
+			USER=${var:2}
+			let "count++"
+			;;
+		#to all
+		-a)
+			TO=${ALL[@]}
+			let "count++"
+			;;
+		#password
+		-p*)
+			PASSWD=${var:2}
+			let "count++"
+			;;
+		#transper mode
+		-t)
+			operation=multscp
+			let "count++"
+			;;
+		#ssh mode
+		-s)
+			operation=multssh
+			let "count++"
+			;;
+		*)
+			;;	
+	esac
+done
+${operation}
